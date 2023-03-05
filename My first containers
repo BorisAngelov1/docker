@@ -1,0 +1,55 @@
+node1] (local) root@192.168.0.18 ~
+$ docker pull centos
+Using default tag: latest
+latest: Pulling from library/centos
+a1d0c7532777: Pull complete 
+Digest: sha256:a27fd8080b517143cbbbab9dfb7c8571c40d67d534bbdee55bd6c473f432b177
+Status: Downloaded newer image for centos:latest
+docker.io/library/centos:latest
+[node1] (local) root@192.168.0.18 ~
+$ docker run -d -t --name boriscont1 centos
+e607b7f724eaa6fe62296896543dadf99b350ea057fbff5c01a1eb124c4f1d48
+[node1] (local) root@192.168.0.18 ~
+$ docker ps
+CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS     NAMES
+e607b7f724ea   centos    "/bin/bash"   13 seconds ago   Up 12 seconds             boriscont1
+[node1] (local) root@192.168.0.18 ~
+$ docker exec -it boriscont1 bash
+[root@e607b7f724ea /]# ls
+bin  etc   lib    lost+found  mnt  proc  run   srv  tmp  var
+dev  home  lib64  media       opt  root  sbin  sys  usr
+[root@e607b7f724ea /]# exit
+exit
+[node1] (local) root@192.168.0.18 ~
+$ docker pull alpine
+Using default tag: latest
+latest: Pulling from library/alpine
+63b65145d645: Pull complete 
+Digest: sha256:69665d02cb32192e52e07644d76bc6f25abeb5410edc1c7a81a10ba3f0efb90a
+Status: Downloaded newer image for alpine:latest
+docker.io/library/alpine:latest
+[node1] (local) root@192.168.0.18 ~
+$ docker run -d -t --name boriscont2
+"docker run" requires at least 1 argument.
+See 'docker run --help'.
+
+Usage:  docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
+
+Run a command in a new container
+[node1] (local) root@192.168.0.18 ~
+$ docker run -d -t --name boriscont2 alpine
+07f3dc9751b0dddafda14905ae574ba9db626ef731d4c0b941f106c1d670ecfa
+[node1] (local) root@192.168.0.18 ~
+$ ls
+[node1] (local) root@192.168.0.18 ~
+$ docker exec -it boriscont2
+"docker exec" requires at least 2 arguments.
+See 'docker exec --help'.
+
+Usage:  docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+
+Run a command in a running container
+[node1] (local) root@192.168.0.18 ~
+$ ls
+[node1] (local) root@192.168.0.18 ~
+$ 
